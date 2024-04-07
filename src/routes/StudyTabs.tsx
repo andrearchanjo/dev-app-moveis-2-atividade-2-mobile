@@ -34,10 +34,6 @@ function StudyTabs() {
                         iconName = focused ? 'heart' : 'heart-outline';
                     }
 
-                    console.log(iconName);
-                    console.log(focused);
-                    console.log(color);
-
                     return <Ionicons name={iconName} size={size} color={color} />;
                 },
             })}
