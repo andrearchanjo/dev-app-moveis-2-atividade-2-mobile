@@ -9,6 +9,8 @@ import whatsappIcon from '../../assets/images/icons/whatsapp.png'
 
 import api from '../../services/api';
 import styles from './styles';
+import convertMinutesToHour from '../../utils/convertMinutesToHour';
+import { Dias } from '../../enums/Dias';
 
 export interface Coach {
     id: number;
@@ -18,6 +20,13 @@ export interface Coach {
     name: string;
     subject: string;
     whatsapp: string;
+    schedules: Schedule[];
+}
+
+export interface Schedule {
+    week_day: number;
+    from: number;
+    to: number;
 }
 
 interface CoachItemProps {
@@ -79,6 +88,16 @@ const CoachItem: React.FC<CoachItemProps> = ({ coach, favorited }) => {
             <Text style={styles.bio}>
                 {coach.bio}
             </Text>
+
+            <View style={styles.scheduleContainer}>
+                {coach.schedules.map((item: Schedule, index) => (
+                    <View key={index} style={styles.scheduleItem}>
+                        <Text style={styles.scheduleText}>
+                            Dia: {Dias.toString(item.week_day)} - {convertMinutesToHour(item.from)} às {convertMinutesToHour(item.to)}
+                        </Text>
+                    </View>
+                ))}
+            </View>
 
             <View style={styles.footer}>
                 <Text style={styles.price}>

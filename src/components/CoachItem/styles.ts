@@ -103,6 +103,27 @@ const styles = StyleSheet.create({
         fontSize: 16,
         marginLeft: 16,
     },
+
+    scheduleContainer: {
+        flexDirection: 'column',
+        marginTop: 16,
+        paddingHorizontal: 24,
+    },
+
+    scheduleItem: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        borderBottomWidth: 1,
+        borderBottomColor: '#e6e6f0',
+        paddingVertical: 8,
+    },
+
+    scheduleText: {
+        fontFamily: 'Poppins_400Regular',
+        fontSize: 14,
+        color: '#6a6180',
+    },
 });
 
 export default styles;
