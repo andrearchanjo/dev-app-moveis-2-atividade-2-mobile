@@ -89,15 +89,17 @@ const CoachItem: React.FC<CoachItemProps> = ({ coach, favorited }) => {
                 {coach.bio}
             </Text>
 
-            <View style={styles.scheduleContainer}>
-                {coach.schedules.map((item: Schedule, index) => (
-                    <View key={index} style={styles.scheduleItem}>
-                        <Text style={styles.scheduleText}>
-                            Dia: {Dias.toString(item.week_day)} - {convertMinutesToHour(item.from)} às {convertMinutesToHour(item.to)}
-                        </Text>
-                    </View>
-                ))}
-            </View>
+            {coach.schedules && coach.schedules.length > 0 ? (
+                <View style={styles.scheduleContainer}>
+                    {coach.schedules.map((item: Schedule, index) => (
+                        <View key={index} style={styles.scheduleItem}>
+                            <Text style={styles.scheduleText}>
+                                Dia: {Dias.toString(item.week_day)} - {convertMinutesToHour(item.from)} às {convertMinutesToHour(item.to)}
+                            </Text>
+                        </View>
+                    ))}
+                </View>
+            ) : null}
 
             <View style={styles.footer}>
                 <Text style={styles.price}>

@@ -1,11 +1,11 @@
 export enum Dias {
     Domingo = 0,
     Segunda = 1,
-    Terca = 2,
-    Quarta = 3,
-    Quinta = 4,
-    Sexta = 5,
-    Sabado = 6
+    Terca   = 2,
+    Quarta  = 3,
+    Quinta  = 4,
+    Sexta   = 5,
+    Sabado  = 6,
 }
 
 export namespace Dias {
@@ -26,7 +26,7 @@ export namespace Dias {
             case Dias.Sabado:
                 return 'Sábado';
             default:
-                throw new Error('Dia inválido');
+                return 'Selecione um Dia';
         }
     }
 }
